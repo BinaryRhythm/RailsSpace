@@ -1,0 +1,34 @@
+<%= form_for :spec do |form| %>
+<fieldset>
+	<legend>
+		<%= @titles %>
+	</legend>
+	<%= text_field_for form,"first_name" %>
+	<%= text_field_for form,"last_name" %>
+	<div class="form_row">
+		<label for="gender">Gender:</label>
+		<%= radio_button :spec,:gender,"Male" %> Male
+		<%= radio_button :spec,:gender,"Female"%> Female
+	</div>
+	<div class="form_row">
+		<label for="birthdate">Birthdate:</label>
+		<%= date_select :spec,:birthdate,
+		:start_year => Spec::START_YEAR,
+		:end_year => Time.now.year,
+		:include_blank => true,
+		:order => [:month,:day,:year] %>
+	</div>
+	<%= text_field_for form,"occupation" %>
+	<%= text_field_for form,"city" %>
+	<%= text_field_for form,"state" %>
+	<div style="float:left">
+	<%= text_field_for form,"zip_code",5,:maxlength => Spec::ZIP_CODE_LENGTH %> 
+	</div>
+	<p style="padding-top: 10px ;font-size: 2px ;color:red ">Attention：Must be 5 numbers!</p>
+	
+	<div class="form_row">
+		 <%= submit_tag "Update!",:class => "submit" %>
+	</div>
+</fieldset>
+<% end %>
+
