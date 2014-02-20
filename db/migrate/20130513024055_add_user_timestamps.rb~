@@ -1,0 +1,11 @@
+class AddUserTimestamps < ActiveRecord::Migration
+  def up
+      add_column :users, :create_on, :date
+      add_column :users, :update_on, :date
+  end
+
+  def down
+	  remove_column :users, :create_on
+	  remove_column :users, :update_on
+  end
+end
