@@ -45,6 +45,19 @@ class SiteControllerTest < ActionController::TestCase
 	  assert_equal "Register",title
 	  assert_response :success
 	  assert_template "register"
+<<<<<<< HEAD
+=======
+	  assert_tag "form", :attributes => {:action=>"/user/register",
+	  :method=>"post"}
+
+	  assert_tag "input",:attributes => {:name => "user[email]",
+	  :type => "text",
+	  :size => User::PASSWORD_SIZE,
+	  :maxlength => User::PASSWORD_MAX_LENGTH }
+
+	  assert_tag "input",
+		      :attributes => {}
+>>>>>>> 14e5f790dcfbf1a15f9466e2dc203cb282c925eb
   end
 
   def test_truth

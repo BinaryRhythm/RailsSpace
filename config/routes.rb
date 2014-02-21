@@ -1,4 +1,41 @@
 RailsTest::Application.routes.draw do
+<<<<<<< HEAD
+=======
+  get "status/store"
+
+  get "status/show"
+
+  get "comment/index"
+
+  get "comment/store"
+
+  get "comment/show"
+
+  get "avatar/index"
+
+  get "avatar/upload"
+
+  get "avatar/delete"
+
+  get "community/index"
+
+  get "community/browse"
+
+  get "community/search"
+
+  get "faq/index"
+
+  get "faq/edit"
+
+  get "spec/index"
+
+  get "spec/edit"
+
+  get "profile/index"
+
+  get "profile/show"
+
+>>>>>>> 14e5f790dcfbf1a15f9466e2dc203cb282c925eb
   get "user/index"
 
   get "user/register"
@@ -9,6 +46,10 @@ RailsTest::Application.routes.draw do
 
   get "site/help"
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 14e5f790dcfbf1a15f9466e2dc203cb282c925eb
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -64,5 +105,14 @@ RailsTest::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
+<<<<<<< HEAD
   match ':controller(/:action(/:id))(.:format)'
+=======
+  match 'profile/:screen_name',:controller => 'profile',:action => 'show'
+  match ':controller(/:action(/:id))(.:format)'
+  #match.profile 'profile/:screen_name',:controller=>'profile',:action=>'show'
+  #map.hub 'user',:controller => 'user',:action => 'index'
+  #match 'faq/index',:controller => 'user',:action => 'index'
+  match ':controller/:action/:id'
+>>>>>>> 14e5f790dcfbf1a15f9466e2dc203cb282c925eb
 end

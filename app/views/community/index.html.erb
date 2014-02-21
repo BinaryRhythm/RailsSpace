@@ -1,0 +1,15 @@
+<h1><%= @titles %></h1>
+<fieldset>
+	<legend>
+		Alphabetical
+	</legend>
+	<% @letters.each do |letter| %>
+	<% letter_class = (letter == @initial) ? "letter_current" : "letter" %>
+	<%= link_to letter,{:action => "index",:id => letter },:class => letter_class %>
+	<%end%>
+	<br class="all" />
+</fieldset>
+<div align="center">
+	<%= render :partial => "user_table" %>
+</div>
+

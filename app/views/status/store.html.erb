@@ -1,0 +1,13 @@
+<h1><%= @titles %></h1>
+<%= form_for :status do |form| %>
+<fieldset>
+	<legend>
+		Publish Status
+	</legend>
+	<div class="status">
+		<%= form.text_area :state,:rows => TEXT_ROWS,:cols => TEXT_COLS %>
+		<%= submit_tag "Publish!",:align => "right",:class => "submit"%>
+	</div>
+</fieldset>
+
+<% end %>

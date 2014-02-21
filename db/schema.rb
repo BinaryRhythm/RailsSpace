@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130518030930) do
+=======
+ActiveRecord::Schema.define(:version => 20130628140023) do
+
+  create_table "faqs", :force => true do |t|
+    t.integer "user_id",    :null => false
+    t.text    "bio"
+    t.text    "skillz"
+    t.text    "schools"
+    t.text    "companies"
+    t.text    "music"
+    t.text    "movies"
+    t.text    "television"
+    t.text    "magazines"
+    t.text    "books"
+  end
+>>>>>>> 14e5f790dcfbf1a15f9466e2dc203cb282c925eb
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -23,14 +40,50 @@ ActiveRecord::Schema.define(:version => 20130518030930) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+<<<<<<< HEAD
+=======
+  create_table "specs", :force => true do |t|
+    t.integer  "user_id",                    :null => false
+    t.string   "first_name", :default => ""
+    t.string   "last_name",  :default => ""
+    t.string   "gender"
+    t.date     "birthdate"
+    t.string   "occupation", :default => ""
+    t.string   "city",       :default => ""
+    t.string   "state",      :default => ""
+    t.string   "zip_code",   :default => ""
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.integer  "user_id",           :null => false
+    t.integer  "comments_id"
+    t.text     "state"
+    t.integer  "good"
+    t.integer  "read_numbers"
+    t.integer  "republish_numbers"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+>>>>>>> 14e5f790dcfbf1a15f9466e2dc203cb282c925eb
   create_table "users", :force => true do |t|
     t.string   "screen_name"
     t.string   "email"
     t.string   "password"
+<<<<<<< HEAD
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.datetime "create_on"
     t.datetime "update_on"
+=======
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.datetime "create_on"
+    t.datetime "update_on"
+    t.string   "authorization_token"
+>>>>>>> 14e5f790dcfbf1a15f9466e2dc203cb282c925eb
   end
 
 end

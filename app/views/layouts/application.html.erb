@@ -4,7 +4,14 @@
 	<title><%= @titles%></title>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= stylesheet_link_tag "site"%>
+<<<<<<< HEAD
   <%= javascript_include_tag "application" %>
+=======
+  <%= stylesheet_link_tag "profile"%>
+  
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag :defaults %>
+>>>>>>> 14e5f790dcfbf1a15f9466e2dc203cb282c925eb
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,6 +20,7 @@
 		<div id="nav">	
 	  
 			<%= nav_link "Home","site","index" %>
+<<<<<<< HEAD
 			|   <%= nav_link "About Us","site","about" %>
 			|   <%= nav_link "Help","site","help" %>
 			|   <%= nav_link "Register","user","register"%>
@@ -30,5 +38,65 @@
        <%= debug(params)%>
     <% end%>
 </div>
+=======
+			|   <%= nav_link "Community","community","index" %>
+			|   <%= nav_link "About Us","site","about" %>
+			|   <%= nav_link "Help","site","help" %> 
+           
+			<span style="float:right">  
+				<% if logged_in? -%>
+	                      	<%= nav_link session[:user_id],"user","index" %>
+				<%= nav_link "LogOut","user","logout" %>
+			        <% else -%>
+				  <%= nav_link "Register","user","register"%>
+				 |   <%= nav_link "Login","user","login" %>
+			 <% end -%>
+		        </span>
+                </div>
+
+      <div id="content">
+	      <% if flash[:notice] -%>
+		      <% if session[:user_id] -%>      
+			      <div id="notice"> User <%= flash[:notice] %> Logged in!Welcome...</div>
+		      <% else -%>
+			      <div id="notice"><%= flash[:notice] %></div>
+		      <% end -%>
+	      <% end -%>
+         <%= yield %>
+         <br clear="all" />
+      </div>
+   </div>
+
+
+   <% if ENV["RAILS_ENV"] == "development" %>
+	    <div id="debug">
+	            <a href="#" onclick="Element.toggle('params_debug_info');return false">params</a> | 
+		    <a href="#" onclick="Element.toggle('session_debug_info');
+			    return false">session</a> |
+		    <a href="#" onclick="Element.toggle('env_debug_info');return false">env</a> |
+		    <a href="#" onclick="Element.toggle('request_debug_info');return false">request</a>
+		    
+		    <fieldset id="params_debug_info" class="debug_info" 
+			    style="">
+			    <legend>params</legend>
+			    <%=debug(params)%>
+		    </fieldset>
+		    <fieldset id="session_debug_info" class="debug_info" 
+			    style="display:none">
+			    <legend>session</legend>
+			    <%=debug(session)%>
+		    </fieldset>
+		    <fieldset id="env_debug_info" class="debug_info" style="display:none">
+			    <legend>env</legend>
+			    <%=debug(request.env)%>
+		    </fieldset>
+		    <fieldset id="request_debug_info" class="debug_info" style="display:none">
+			    <legend>request</legend>
+			    <%=debug(request)%>
+		    </fieldset>
+	    </div>
+  <% end%>
+ 
+>>>>>>> 14e5f790dcfbf1a15f9466e2dc203cb282c925eb
 </body>
 </html>
